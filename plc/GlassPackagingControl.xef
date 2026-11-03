@@ -1,0 +1,2131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FEFExchangeFile>
+	<fileHeader company="Schneider Automation" product="Unity Pro XL V5.0 - 100504A" dateTime="date_and_time#2024-12-11-20:3:51" content="Project source file" DTDVersion="41"></fileHeader>
+	<contentHeader name="Project" version="0.0.13" dateTime="date_and_time#2024-12-7-18:42:8"></contentHeader>
+	<commParameters>
+		<PLCAddress address="SYS" media="USB" nbTries="2" timeout="3000" highSpeed="0"></PLCAddress>
+		<simulatorAddress address="127.0.0.1" media="TCPIP" nbTries="2" timeout="3000"></simulatorAddress>
+		<bandwith animation="70" PLCMonitor="10" PLCScreen="10" diagnostic="10"></bandwith>
+	</commParameters>
+	<IOConf>
+		<PLC autoRun="false" MWInitZero="true" ColdStartOnly="false" numberInternalWord="1024" numberConstantWord="256" numberInternalBit="512">
+			<partItem family="Micro Basic" partNumber="BMXP342020" vendorName="Schneider Automation" version="02.10"></partItem>
+			<equipInfo topoAddress="\0.0\0.0" position="0"></equipInfo>
+			<configATS>
+				<busATS name="XBusMicro">
+					<equipInfo topoAddress="\0" position="0"></equipInfo>
+					<rackATS>
+						<partItem family="Rack" partNumber="BMXXBP0800" vendorName="Schneider Automation" version="01.00"></partItem>
+						<equipInfo topoAddress="\0.0\0" position="0"></equipInfo>
+						<powerSupply>
+							<partItem family="Supply" partNumber="BMXCPS2000" vendorName="Schneider Automation" version="01.00"></partItem>
+							<equipInfo topoAddress="\0.0\0.(P) (P)" position="-1"></equipInfo>
+						</powerSupply>
+						<moduleATS UCMod="true">
+							<partItem family="Micro Basic" partNumber="BMXP342020" vendorName="Schneider Automation" version="02.10"></partItem>
+							<equipInfo topoAddress="\0.0\0.0" position="0"></equipInfo>
+							<configModule>
+								<channelATS ASFCatKey="ModbusSerialPort" task="MAST" number="0">
+									<descFB code="0" version="255"></descFB>
+									<descIOB IOBFileName="IOB_3_0010000_AV4" version="1"></descIOB>
+									<paramKW>
+										<hexaValue hexaValue="0x7"></hexaValue>
+										<hexaValue hexaValue="0xb04"></hexaValue>
+										<hexaValue hexaValue="0x2"></hexaValue>
+										<hexaValue hexaValue="0x1"></hexaValue>
+										<hexaValue hexaValue="0x0"></hexaValue>
+										<hexaValue hexaValue="0x0"></hexaValue>
+										<hexaValue hexaValue="0x0"></hexaValue>
+										<hexaValue hexaValue="0x0"></hexaValue>
+									</paramKW>
+								</channelATS>
+							</configModule>
+						</moduleATS>
+					</rackATS>
+				</busATS>
+			</configATS>
+		</PLC>
+	</IOConf>
+	<dataBlock>
+		<variables name="pos0" typeName="EBOOL"></variables>
+		<variables name="pos1" typeName="EBOOL"></variables>
+		<variables name="pos2" typeName="EBOOL"></variables>
+		<variables name="Presence" typeName="EBOOL"></variables>
+		<variables name="W" typeName="INT"></variables>
+		<variables name="VCH" typeName="EBOOL"></variables>
+		<variables name="VCL" typeName="EBOOL"></variables>
+		<variables name="C2H" typeName="EBOOL"></variables>
+		<variables name="C2L" typeName="EBOOL"></variables>
+		<variables name="Encoder1" typeName="EBOOL"></variables>
+		<variables name="Encoder2" typeName="EBOOL"></variables>
+		<variables name="PS" typeName="EBOOL"></variables>
+		<variables name="L1" typeName="EBOOL"></variables>
+		<variables name="L2" typeName="EBOOL"></variables>
+		<variables name="L3" typeName="EBOOL"></variables>
+		<variables name="L4" typeName="EBOOL"></variables>
+		<variables name="Exitt" typeName="EBOOL"></variables>
+		<variables name="VC" typeName="EBOOL"></variables>
+		<variables name="C1" typeName="EBOOL"></variables>
+		<variables name="C2" typeName="EBOOL"></variables>
+		<variables name="C3F" typeName="EBOOL"></variables>
+		<variables name="C3B" typeName="EBOOL"></variables>
+		<variables name="C4F" typeName="EBOOL"></variables>
+		<variables name="C4B" typeName="EBOOL"></variables>
+		<variables name="C5" typeName="EBOOL"></variables>
+		<variables name="V" typeName="EBOOL"></variables>
+		<variables name="MR" typeName="EBOOL"></variables>
+		<variables name="ML" typeName="EBOOL"></variables>
+		<variables name="Cylinder2R" typeName="EBOOL"></variables>
+		<variables name="Rot1CW" typeName="EBOOL"></variables>
+		<variables name="Rot1CCW" typeName="EBOOL"></variables>
+		<variables name="Rot2CW" typeName="EBOOL"></variables>
+		<variables name="Rot2CCW" typeName="EBOOL"></variables>
+		<variables name="Start" typeName="EBOOL"></variables>
+		<variables name="Init" typeName="EBOOL"></variables>
+		<variables name="Emergenc" typeName="EBOOL"></variables>
+		<variables name="RunLamp" typeName="EBOOL"></variables>
+		<variables name="EmptyLamp" typeName="EBOOL"></variables>
+		<variables name="StopLamp" typeName="EBOOL"></variables>
+		<variables name="InitLamp" typeName="EBOOL"></variables>
+		<variables name="Cylinder2E" typeName="EBOOL"></variables>
+		<variables name="VCR" typeName="EBOOL"></variables>
+		<variables name="VCE" typeName="EBOOL"></variables>
+		<variables name="Counter" typeName="INT"></variables>
+		<variables name="SheetWeight" typeName="INT"></variables>
+		<variables name="C3PosInit" typeName="EBOOL"></variables>
+		<variables name="C4PosInit" typeName="EBOOL"></variables>
+	</dataBlock>
+	<Motion></Motion>
+	<logicConf>
+		<resource resName="Micro Basic" resIdent="BMX P34 2020 02.10">
+			<taskDesc task="MAST" taskType="cyclic" valueType="0" maxExecTime="250">
+				<sectionDesc name="Initialization"></sectionDesc>
+				<sectionDesc name="Main"></sectionDesc>
+				<sectionDesc name="NormalProduction"></sectionDesc>
+				<sectionDesc name="Emergency"></sectionDesc>
+				<sectionDesc name="CylinderMechanism"></sectionDesc>
+				<sectionDesc name="ProtectionExit"></sectionDesc>
+			</taskDesc>
+			<FMDesc name="Functional Project" FMId="ROOT"></FMDesc>
+		</resource>
+	</logicConf>
+	<SFCProgram areaNum="0" operatorCtrl="0">
+		<identProgram name="Initialization" type="section" task="MAST"></identProgram>
+		<chartSource name="Chart">
+			<networkSFC>
+				<step stepType="initialStep" stepName="I0">
+					<objPosition posX="4" posY="0"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="1"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T1</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I1">
+					<objPosition posX="4" posY="2"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Cylinder2R</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>VCR</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="3"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T2</sectionName>
+					</transitionCondition>
+				</transition>
+				<parBranch width="5" relativePos="0">
+					<objPosition posX="4" posY="4"></objPosition>
+				</parBranch>
+				<step stepType="step" stepName="I3">
+					<objPosition posX="4" posY="4"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>ML</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="5"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>pos0</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I4">
+					<objPosition posX="4" posY="6"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<altBranch width="2" relativePos="0">
+					<objPosition posX="4" posY="7"></objPosition>
+				</altBranch>
+				<transition>
+					<objPosition posX="4" posY="7"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>Presence</variableName>
+					</transitionCondition>
+				</transition>
+				<transition>
+					<objPosition posX="5" posY="7"></objPosition>
+					<transitionCondition invertLogic="true">
+						<variableName>Presence</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I5">
+					<objPosition posX="4" posY="8"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<jumpSFC stepName="I6">
+					<objPosition posX="5" posY="8"></objPosition>
+				</jumpSFC>
+				<step stepType="step" stepName="I7">
+					<objPosition posX="6" posY="4"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C1</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C2</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C3F</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C4F</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C5</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<parJoint width="4" relativePos="0">
+					<objPosition posX="4" posY="16"></objPosition>
+				</parJoint>
+				<transition>
+					<objPosition posX="4" posY="17"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T27</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I16">
+					<objPosition posX="4" posY="18"></objPosition>
+					<action qualifier="S">
+						<actionName>
+							<variableName>InitLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="19"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>InitLamp</variableName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="I0">
+					<objPosition posX="4" posY="20"></objPosition>
+				</jumpSFC>
+				<transition>
+					<objPosition posX="4" posY="9"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>VCH</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I6">
+					<objPosition posX="4" posY="10"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="6" posY="5"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T3</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I8">
+					<objPosition posX="6" posY="6"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Rot1CCW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Rot2CCW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="6" posY="7"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T4</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I9">
+					<objPosition posX="6" posY="8"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C1</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C2</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C4F</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C3F</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C5</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="6" posY="9"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T5</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I10">
+					<objPosition posX="6" posY="10"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Rot1CW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Rot2CW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="6" posY="11"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T6</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I11">
+					<objPosition posX="6" posY="12"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C3B</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C4B</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C5</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="6" posY="13"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T7</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I12">
+					<objPosition posX="6" posY="14"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Rot1CCW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Rot2CCW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="6" posY="15"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T26</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="I13">
+					<objPosition posX="6" posY="16"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<linkSFC>
+					<directedLinkSource objectType="step">
+						<objPosition posX="4" posY="10"></objPosition>
+					</directedLinkSource>
+					<directedLinkDestination objectType="parJoint">
+						<objPosition posX="4" posY="16"></objPosition>
+					</directedLinkDestination>
+				</linkSFC>
+			</networkSFC>
+		</chartSource>
+		<transitionSource name="T1">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="2"></HLink>
+						<contact typeContact="closedContact" contactVariableName="RunLamp"></contact>
+						<contact typeContact="openContact" contactVariableName="init"></contact>
+						<HLink nbCells="4"></HLink>
+						<coil typeCoil="coil" coilVariableName="T1"></coil>
+						<HLink nbCells="2"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T2">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="2"></HLink>
+						<contact typeContact="openContact" contactVariableName="VCH"></contact>
+						<contact typeContact="openContact" contactVariableName="C2H"></contact>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T2"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T3">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="2"></HLink>
+						<compareBlock width="2">
+							<expression>I7.T&gt;T#500ms</expression>
+						</compareBlock>
+						<HLink nbCells="3"></HLink>
+						<coil typeCoil="coil" coilVariableName="T3"></coil>
+						<HLink nbCells="3"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T4">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="openContact" contactVariableName="C3PosInit"></contact>
+						<contact typeContact="openContact" contactVariableName="C4PosInit"></contact>
+						<HLink nbCells="4"></HLink>
+						<coil typeCoil="coil" coilVariableName="T4"></coil>
+						<HLink nbCells="3"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T5">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="2"></HLink>
+						</shortCircuit>
+						<contact typeContact="openContact" contactVariableName="L1"></contact>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="L2"></contact>
+						</shortCircuit>
+						<HLink nbCells="3"></HLink>
+						<coil typeCoil="coil" coilVariableName="T5"></coil>
+						<HLink nbCells="3"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<VLink></VLink>
+						<contact typeContact="openContact" contactVariableName="L2"></contact>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="L4"></contact>
+						</shortCircuit>
+						<emptyCell nbCells="7"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<VLink></VLink>
+						<contact typeContact="openContact" contactVariableName="L2"></contact>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<emptyCell nbCells="7"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<VLink></VLink>
+						<contact typeContact="openContact" contactVariableName="L3"></contact>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<emptyCell nbCells="7"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="2"></emptyCell>
+						<contact typeContact="openContact" contactVariableName="L4"></contact>
+						<HLink nbCells="1"></HLink>
+						<emptyCell nbCells="7"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="94"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T6">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="openContact" contactVariableName="Encoder1"></contact>
+						<contact typeContact="openContact" contactVariableName="Encoder2"></contact>
+						<HLink nbCells="3"></HLink>
+						<coil typeCoil="coil" coilVariableName="T6"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T7">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="2"></HLink>
+						<compareBlock width="2">
+							<expression>I11.T&gt;T#10s</expression>
+						</compareBlock>
+						<HLink nbCells="1"></HLink>
+						<coil typeCoil="coil" coilVariableName="T7"></coil>
+						<HLink nbCells="5"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T26">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="openContact" contactVariableName="C3PosInit"></contact>
+						<contact typeContact="openContact" contactVariableName="C4PosInit"></contact>
+						<HLink nbCells="3"></HLink>
+						<coil typeCoil="coil" coilVariableName="T26"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T27">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="closedContact" contactVariableName="L1"></contact>
+						<contact typeContact="closedContact" contactVariableName="L2"></contact>
+						<contact typeContact="closedContact" contactVariableName="L3"></contact>
+						<contact typeContact="closedContact" contactVariableName="L4"></contact>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T27"></coil>
+						<HLink nbCells="3"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+	</SFCProgram>
+	<program>
+		<identProgram name="Main" type="section" task="MAST"></identProgram>
+		<LDSource nbColumns="11">
+			<networkLD>
+				<typeLine>
+					<emptyCell nbCells="4"></emptyCell>
+					<FFBBlock instanceName=".1" typeName="INITCHART" additionnalPinNumber="0" enEnO="true" width="16" height="4">
+						<objPosition posX="4" posY="0"></objPosition>
+						<descriptionFFB execAfter="">
+							<inputVariable invertedPin="false" formalParameter="EN"></inputVariable>
+							<inputVariable invertedPin="false" formalParameter="CHARTREF" effectiveParameter="Initialization"></inputVariable>
+							<inputVariable invertedPin="false" formalParameter="INIT_I"></inputVariable>
+							<outputVariable invertedPin="false" formalParameter="ENO"></outputVariable>
+							<outputVariable invertedPin="false" formalParameter="INIT_O"></outputVariable>
+						</descriptionFFB>
+					</FFBBlock>
+					<emptyCell nbCells="5"></emptyCell>
+				</typeLine>
+				<typeLine>
+					<emptyLine nbRows="2"></emptyLine>
+				</typeLine>
+				<typeLine>
+					<shortCircuit>
+						<VLink></VLink>
+						<HLink nbCells="1"></HLink>
+					</shortCircuit>
+					<contact typeContact="closedContact" contactVariableName="Emergenc"></contact>
+					<shortCircuit>
+						<VLink></VLink>
+						<HLink nbCells="1"></HLink>
+					</shortCircuit>
+					<HLink nbCells="1"></HLink>
+					<emptyCell nbCells="7"></emptyCell>
+				</typeLine>
+				<typeLine>
+					<emptyCell nbCells="1"></emptyCell>
+					<contact typeContact="openContact" contactVariableName="V"></contact>
+					<contact typeContact="closedContact" contactVariableName="Presence"></contact>
+					<emptyCell nbCells="8"></emptyCell>
+				</typeLine>
+				<typeLine>
+					<emptyCell nbCells="4"></emptyCell>
+					<FFBBlock instanceName=".2" typeName="INITCHART" additionnalPinNumber="0" enEnO="true" width="16" height="4">
+						<objPosition posX="4" posY="5"></objPosition>
+						<descriptionFFB execAfter="">
+							<inputVariable invertedPin="false" formalParameter="EN"></inputVariable>
+							<inputVariable invertedPin="false" formalParameter="CHARTREF" effectiveParameter="NormalProduction"></inputVariable>
+							<inputVariable invertedPin="false" formalParameter="INIT_I"></inputVariable>
+							<outputVariable invertedPin="false" formalParameter="ENO"></outputVariable>
+							<outputVariable invertedPin="false" formalParameter="INIT_O"></outputVariable>
+						</descriptionFFB>
+					</FFBBlock>
+					<emptyCell nbCells="5"></emptyCell>
+				</typeLine>
+				<typeLine>
+					<emptyLine nbRows="2"></emptyLine>
+				</typeLine>
+				<typeLine>
+					<shortCircuit>
+						<VLink></VLink>
+						<HLink nbCells="1"></HLink>
+					</shortCircuit>
+					<contact typeContact="closedContact" contactVariableName="Emergenc"></contact>
+					<shortCircuit>
+						<VLink></VLink>
+						<HLink nbCells="1"></HLink>
+					</shortCircuit>
+					<HLink nbCells="1"></HLink>
+					<emptyCell nbCells="7"></emptyCell>
+				</typeLine>
+				<typeLine>
+					<emptyCell nbCells="1"></emptyCell>
+					<contact typeContact="openContact" contactVariableName="V"></contact>
+					<contact typeContact="closedContact" contactVariableName="Presence"></contact>
+					<emptyCell nbCells="8"></emptyCell>
+				</typeLine>
+				<typeLine>
+					<emptyLine nbRows="90"></emptyLine>
+				</typeLine>
+			</networkLD>
+		</LDSource>
+	</program>
+	<SFCProgram areaNum="0" operatorCtrl="0">
+		<identProgram name="NormalProduction" type="section" task="MAST"></identProgram>
+		<chartSource name="Chart">
+			<networkSFC>
+				<step stepType="initialStep" stepName="P0">
+					<objPosition posX="3" posY="0"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="1"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T8</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P1">
+					<objPosition posX="3" posY="2"></objPosition>
+					<action qualifier="R">
+						<actionName>
+							<variableName>InitLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C1</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C2</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="S">
+						<actionName>
+							<variableName>RunLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="3"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T9</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P2">
+					<objPosition posX="3" posY="4"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Rot2CW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="5"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>Encoder2</variableName>
+					</transitionCondition>
+				</transition>
+				<parBranch width="2" relativePos="0">
+					<objPosition posX="3" posY="6"></objPosition>
+				</parBranch>
+				<step stepType="step" stepName="P3">
+					<objPosition posX="3" posY="6"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="7"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>pos1</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P4">
+					<objPosition posX="3" posY="8"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="9"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>pos0</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P5">
+					<objPosition posX="3" posY="10"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="11"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>pos2</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P6">
+					<objPosition posX="3" posY="12"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="13"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>pos0</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P7">
+					<objPosition posX="3" posY="14"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<step stepType="step" stepName="P8">
+					<objPosition posX="4" posY="6"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C1</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C4F</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="7"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>L4</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P9">
+					<objPosition posX="4" posY="8"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="9"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>Exitt</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P10">
+					<objPosition posX="4" posY="10"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C2</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C3F</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="11"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>L3</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P11">
+					<objPosition posX="4" posY="12"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Rot2CCW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="13"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>Encoder2</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P12">
+					<objPosition posX="4" posY="14"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C3B</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C4B</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="15"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>L4</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P13">
+					<objPosition posX="4" posY="16"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Rot1CW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="17"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>Encoder1</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P14">
+					<objPosition posX="4" posY="18"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="19"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>Exitt</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="P15">
+					<objPosition posX="4" posY="20"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<parJoint width="2" relativePos="0">
+					<objPosition posX="3" posY="20"></objPosition>
+				</parJoint>
+				<transition>
+					<objPosition posX="3" posY="21"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T10</sectionName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="P1">
+					<objPosition posX="3" posY="22"></objPosition>
+				</jumpSFC>
+				<linkSFC>
+					<directedLinkSource objectType="step">
+						<objPosition posX="3" posY="14"></objPosition>
+					</directedLinkSource>
+					<directedLinkDestination objectType="parJoint">
+						<objPosition posX="3" posY="20"></objPosition>
+					</directedLinkDestination>
+				</linkSFC>
+			</networkSFC>
+		</chartSource>
+		<transitionSource name="T8">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="openContact" contactVariableName="Start"></contact>
+						<contact typeContact="openContact" contactVariableName="InitLamp"></contact>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T8"></coil>
+						<HLink nbCells="5"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T9">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="2"></HLink>
+						<contact typeContact="openContact" contactVariableName="L1"></contact>
+						<contact typeContact="openContact" contactVariableName="L2"></contact>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T9"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T10">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="closedContact" contactVariableName="L1"></contact>
+						<contact typeContact="closedContact" contactVariableName="L2"></contact>
+						<contact typeContact="closedContact" contactVariableName="L3"></contact>
+						<contact typeContact="closedContact" contactVariableName="L4"></contact>
+						<HLink nbCells="1"></HLink>
+						<coil typeCoil="coil" coilVariableName="T10"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+	</SFCProgram>
+	<SFCProgram areaNum="0" operatorCtrl="0">
+		<identProgram name="Emergency" type="section" task="MAST"></identProgram>
+		<chartSource name="Chart">
+			<networkSFC>
+				<step stepType="initialStep" stepName="E0">
+					<objPosition posX="4" posY="0"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<step stepType="step" stepName="E1">
+					<objPosition posX="4" posY="2"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>StopLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="R">
+						<actionName>
+							<variableName>RunLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="R">
+						<actionName>
+							<variableName>InitLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="3"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>init</variableName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="E0">
+					<objPosition posX="4" posY="4"></objPosition>
+				</jumpSFC>
+				<altBranch width="2" relativePos="0">
+					<objPosition posX="4" posY="1"></objPosition>
+				</altBranch>
+				<transition>
+					<objPosition posX="4" posY="1"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T22</sectionName>
+					</transitionCondition>
+				</transition>
+				<transition>
+					<objPosition posX="5" posY="1"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T23</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="E2">
+					<objPosition posX="5" posY="2"></objPosition>
+					<action qualifier="R">
+						<actionName>
+							<variableName>InitLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="R">
+						<actionName>
+							<variableName>RunLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="L">
+						<actionName>
+							<variableName>EmptyLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral>T#1s</tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<step stepType="step" stepName="E3">
+					<objPosition posX="5" posY="4"></objPosition>
+					<action qualifier="D">
+						<actionName>
+							<variableName>EmptyLamp</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral>T#1s</tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<altBranch width="2" relativePos="0">
+					<objPosition posX="5" posY="5"></objPosition>
+				</altBranch>
+				<transition>
+					<objPosition posX="5" posY="5"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>EmptyLamp</variableName>
+					</transitionCondition>
+				</transition>
+				<altBranch width="3" relativePos="0">
+					<objPosition posX="5" posY="3"></objPosition>
+				</altBranch>
+				<transition>
+					<objPosition posX="5" posY="3"></objPosition>
+					<transitionCondition invertLogic="true">
+						<variableName>EmptyLamp</variableName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="E2">
+					<objPosition posX="5" posY="6"></objPosition>
+				</jumpSFC>
+				<transition>
+					<objPosition posX="7" posY="3"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T24</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="E4">
+					<objPosition posX="7" posY="4"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="7" posY="5"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>init</variableName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="E0">
+					<objPosition posX="7" posY="6"></objPosition>
+				</jumpSFC>
+				<transition>
+					<objPosition posX="6" posY="5"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T25</sectionName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="E4">
+					<objPosition posX="6" posY="6"></objPosition>
+				</jumpSFC>
+			</networkSFC>
+		</chartSource>
+		<transitionSource name="T22">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<contact typeContact="closedContact" contactVariableName="Emergenc"></contact>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<HLink nbCells="3"></HLink>
+						<coil typeCoil="coil" coilVariableName="T22"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<contact typeContact="openContact" contactVariableName="V"></contact>
+						<contact typeContact="closedContact" contactVariableName="Presence"></contact>
+						<emptyCell nbCells="8"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="97"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T23">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<shortCircuit>
+							<VLink></VLink>
+							<compareBlock width="2">
+								<expression>W &lt; SheetWeight</expression>
+							</compareBlock>
+						</shortCircuit>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="openContact" contactVariableName="Emergenc"></contact>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T23"></coil>
+						<HLink nbCells="3"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<contact typeContact="closedContact" contactVariableName="PS"></contact>
+						<HLink nbCells="1"></HLink>
+						<emptyCell nbCells="8"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="97"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T24">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="openContact" contactVariableName="PS"></contact>
+						<compareBlock width="2">
+							<expression>W &gt; SheetWeight</expression>
+						</compareBlock>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T24"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T25">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="openContact" contactVariableName="PS"></contact>
+						<compareBlock width="2">
+							<expression>W &gt; SheetWeight</expression>
+						</compareBlock>
+						<HLink nbCells="3"></HLink>
+						<coil typeCoil="coil" coilVariableName="T25"></coil>
+						<HLink nbCells="3"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+	</SFCProgram>
+	<SFCProgram areaNum="0" operatorCtrl="0">
+		<identProgram name="CylinderMechanism" type="section" task="MAST"></identProgram>
+		<chartSource name="Chart">
+			<networkSFC>
+				<step stepType="initialStep" stepName="D0">
+					<objPosition posX="3" posY="0"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="1"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T11</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="D1">
+					<objPosition posX="3" posY="2"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>VCE</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="3"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>VCL</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="D2">
+					<objPosition posX="3" posY="4"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<altBranch width="2" relativePos="0">
+					<objPosition posX="3" posY="5"></objPosition>
+				</altBranch>
+				<transition>
+					<objPosition posX="3" posY="5"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T12</sectionName>
+					</transitionCondition>
+				</transition>
+				<transition>
+					<objPosition posX="4" posY="5"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T13</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="D3">
+					<objPosition posX="3" posY="6"></objPosition>
+					<action qualifier="S">
+						<actionName>
+							<variableName>V</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="7"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>V</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="D4">
+					<objPosition posX="3" posY="8"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>VCR</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="9"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>VCH</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="D5">
+					<objPosition posX="3" posY="10"></objPosition>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<step stepType="step" stepName="D6">
+					<objPosition posX="4" posY="6"></objPosition>
+					<action qualifier="R">
+						<actionName>
+							<variableName>V</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="7"></objPosition>
+					<transitionCondition invertLogic="true">
+						<variableName>V</variableName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="D4">
+					<objPosition posX="4" posY="8"></objPosition>
+				</jumpSFC>
+				<altBranch width="3" relativePos="0">
+					<objPosition posX="3" posY="11"></objPosition>
+				</altBranch>
+				<transition>
+					<objPosition posX="3" posY="11"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T14</sectionName>
+					</transitionCondition>
+				</transition>
+				<transition>
+					<objPosition posX="4" posY="11"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T15</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="D7">
+					<objPosition posX="3" posY="12"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>MR</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<step stepType="step" stepName="D8">
+					<objPosition posX="4" posY="12"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>ML</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="3" posY="13"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T16</sectionName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="D0">
+					<objPosition posX="3" posY="14"></objPosition>
+				</jumpSFC>
+				<transition>
+					<objPosition posX="4" posY="13"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T17</sectionName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="D0">
+					<objPosition posX="4" posY="14"></objPosition>
+				</jumpSFC>
+				<transition>
+					<objPosition posX="5" posY="11"></objPosition>
+					<transitionCondition invertLogic="true">
+						<variableName>I5.X</variableName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="D0">
+					<objPosition posX="5" posY="12"></objPosition>
+				</jumpSFC>
+			</networkSFC>
+		</chartSource>
+		<transitionSource name="T11">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="2"></HLink>
+						</shortCircuit>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P3.X"></contact>
+						</shortCircuit>
+						<HLink nbCells="4"></HLink>
+						<coil typeCoil="coil" coilVariableName="T11"></coil>
+						<HLink nbCells="3"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<VLink></VLink>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P4.X"></contact>
+						</shortCircuit>
+						<emptyCell nbCells="8"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<VLink></VLink>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P5.X"></contact>
+						</shortCircuit>
+						<emptyCell nbCells="8"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<VLink></VLink>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P6.X"></contact>
+						</shortCircuit>
+						<emptyCell nbCells="8"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="2"></emptyCell>
+						<contact typeContact="openContact" contactVariableName="I5.X"></contact>
+						<emptyCell nbCells="8"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="94"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T12">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P3.X"></contact>
+						</shortCircuit>
+						<HLink nbCells="4"></HLink>
+						<coil typeCoil="coil" coilVariableName="T12"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<contact typeContact="openContact" contactVariableName="P5.X"></contact>
+						<emptyCell nbCells="9"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="97"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T13">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P4.X"></contact>
+						</shortCircuit>
+						<HLink nbCells="3"></HLink>
+						<coil typeCoil="coil" coilVariableName="T13"></coil>
+						<HLink nbCells="5"></HLink>
+					</typeLine>
+					<typeLine>
+						<VLink></VLink>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P6.X"></contact>
+						</shortCircuit>
+						<emptyCell nbCells="9"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<contact typeContact="openContact" contactVariableName="I5.X"></contact>
+						<emptyCell nbCells="9"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="96"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T14">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P3.X"></contact>
+						</shortCircuit>
+						<HLink nbCells="5"></HLink>
+						<coil typeCoil="coil" coilVariableName="T14"></coil>
+						<HLink nbCells="3"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<contact typeContact="openContact" contactVariableName="P5.X"></contact>
+						<emptyCell nbCells="9"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="97"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T15">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P4.X"></contact>
+						</shortCircuit>
+						<HLink nbCells="4"></HLink>
+						<coil typeCoil="coil" coilVariableName="T15"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<contact typeContact="openContact" contactVariableName="P6.X"></contact>
+						<emptyCell nbCells="9"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="97"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T16">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="closedContact" contactVariableName="P3.X"></contact>
+						<contact typeContact="closedContact" contactVariableName="P4.X"></contact>
+						<contact typeContact="closedContact" contactVariableName="P5.X"></contact>
+						<contact typeContact="closedContact" contactVariableName="P6.X"></contact>
+						<HLink nbCells="1"></HLink>
+						<coil typeCoil="coil" coilVariableName="T16"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T17">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="closedContact" contactVariableName="P3.X"></contact>
+						<contact typeContact="closedContact" contactVariableName="P4.X"></contact>
+						<contact typeContact="closedContact" contactVariableName="P5.X"></contact>
+						<contact typeContact="closedContact" contactVariableName="P6.X"></contact>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T17"></coil>
+						<HLink nbCells="3"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+	</SFCProgram>
+	<SFCProgram areaNum="0" operatorCtrl="0">
+		<identProgram name="ProtectionExit" type="section" task="MAST"></identProgram>
+		<chartSource name="Chart">
+			<networkSFC>
+				<step stepType="initialStep" stepName="G0">
+					<objPosition posX="4" posY="0"></objPosition>
+					<action qualifier="P1">
+						<actionName>
+							<sectionName>SetCounter</sectionName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="1"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T18</sectionName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="G1">
+					<objPosition posX="4" posY="2"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>Cylinder2E</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="3"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>C2L</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="G2">
+					<objPosition posX="4" posY="4"></objPosition>
+					<action qualifier="S">
+						<actionName>
+							<variableName>Rot1CCW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="5"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>Encoder1</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="G4">
+					<objPosition posX="4" posY="6"></objPosition>
+					<action qualifier="NONE">
+						<actionName>
+							<sectionName>IncCounter</sectionName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<altBranch width="2" relativePos="0">
+					<objPosition posX="4" posY="7"></objPosition>
+				</altBranch>
+				<transition>
+					<objPosition posX="4" posY="7"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T19</sectionName>
+					</transitionCondition>
+				</transition>
+				<transition>
+					<objPosition posX="5" posY="7"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T20</sectionName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="G2">
+					<objPosition posX="5" posY="8"></objPosition>
+				</jumpSFC>
+				<step stepType="step" stepName="G5">
+					<objPosition posX="4" posY="8"></objPosition>
+					<action qualifier="R">
+						<actionName>
+							<variableName>Rot1CCW</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="R">
+						<actionName>
+							<variableName>Cylinder2R</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="9"></objPosition>
+					<transitionCondition invertLogic="false">
+						<variableName>C2H</variableName>
+					</transitionCondition>
+				</transition>
+				<step stepType="step" stepName="G6">
+					<objPosition posX="4" posY="10"></objPosition>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C3B</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<action qualifier="N">
+						<actionName>
+							<variableName>C4B</variableName>
+						</actionName>
+						<tValue>
+							<tLiteral></tLiteral>
+						</tValue>
+					</action>
+					<literals max="" min="" delay=""></literals>
+				</step>
+				<transition>
+					<objPosition posX="4" posY="11"></objPosition>
+					<transitionCondition invertLogic="false">
+						<sectionName>T21</sectionName>
+					</transitionCondition>
+				</transition>
+				<jumpSFC stepName="G0">
+					<objPosition posX="4" posY="12"></objPosition>
+				</jumpSFC>
+			</networkSFC>
+		</chartSource>
+		<actionSource name="SetCounter">
+			<STSource>Counter:=0;
+</STSource>
+		</actionSource>
+		<actionSource name="IncCounter">
+			<STSource>Counter:=Counter+1;
+</STSource>
+		</actionSource>
+		<transitionSource name="T18">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<shortCircuit>
+							<VLink></VLink>
+							<HLink nbCells="1"></HLink>
+						</shortCircuit>
+						<shortCircuit>
+							<VLink></VLink>
+							<contact typeContact="openContact" contactVariableName="P9.X"></contact>
+						</shortCircuit>
+						<HLink nbCells="3"></HLink>
+						<coil typeCoil="coil" coilVariableName="T18"></coil>
+						<HLink nbCells="5"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyCell nbCells="1"></emptyCell>
+						<contact typeContact="openContact" contactVariableName="P14.X"></contact>
+						<emptyCell nbCells="9"></emptyCell>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="97"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T19">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="2"></HLink>
+						<compareBlock width="2">
+							<expression>Counter = 5</expression>
+						</compareBlock>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T19"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T20">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="2"></HLink>
+						<compareBlock width="2">
+							<expression>Counter &lt; 5</expression>
+						</compareBlock>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T20"></coil>
+						<HLink nbCells="4"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+		<transitionSource name="T21">
+			<LDSource nbColumns="11">
+				<networkLD>
+					<typeLine>
+						<emptyLine nbRows="1"></emptyLine>
+					</typeLine>
+					<typeLine>
+						<HLink nbCells="1"></HLink>
+						<contact typeContact="closedContact" contactVariableName="P9.X"></contact>
+						<contact typeContact="closedContact" contactVariableName="P14.X"></contact>
+						<HLink nbCells="2"></HLink>
+						<coil typeCoil="coil" coilVariableName="T21"></coil>
+						<HLink nbCells="5"></HLink>
+					</typeLine>
+					<typeLine>
+						<emptyLine nbRows="98"></emptyLine>
+					</typeLine>
+				</networkLD>
+			</LDSource>
+		</transitionSource>
+	</SFCProgram>
+	<IOScreen version="V1.0"></IOScreen>
+	<DTMRoot></DTMRoot>
+	<settings version="410">
+		<!--group unity.Settings-->
+		<!--group unity.General-->
+		<!--group unity.ManageBuildMessages-->
+		<entryvalue ident="unity.variableNotUsed" value="0"></entryvalue>
+		<entryvalue ident="unity.multiWritingOfVar" value="0"></entryvalue>
+		<entryvalue ident="unity.paramNotAssign" value="0"></entryvalue>
+		<entryvalue ident="unity.multiFBInstance" value="0"></entryvalue>
+		<entryvalue ident="unity.ddtMappingCompat" value="0"></entryvalue>
+		<entryvalue ident="unity.overlOfAdd" value="1"></entryvalue>
+		<entryvalue ident="unity.WarningsActif" value="1"></entryvalue>
+		<entryvalue ident="unity.NbWarnings" value="500"></entryvalue>
+		<entryvalue ident="unity.ErrorsActif" value="1"></entryvalue>
+		<entryvalue ident="unity.NbErrors" value="500"></entryvalue>
+		<!--group unity.BuildSettings-->
+		<entryvalue ident="unity.freeKbytes" value="1"></entryvalue>
+		<entryvalue ident="unity.virtCodeGenEnable" value="0"></entryvalue>
+		<entryvalue ident="unity.ldLink" value="1"></entryvalue>
+		<entryvalue ident="unity.ldOptCode" value="0"></entryvalue>
+		<!--group unity.SaveOnDownload-->
+		<entryvalue ident="unity.SaveOnDownloadSTA" value="1"></entryvalue>
+		<entryvalue ident="unity.SaveOnDownloadSTU" value="0"></entryvalue>
+		<entryvalue ident="unity.SaveOnDownloadXVM" value="0"></entryvalue>
+		<!--group unity.PLCEmbeddedData-->
+		<entryvalue ident="unity.dataDictionary" value="0"></entryvalue>
+		<entryvalue ident="unity.actif" value="1"></entryvalue>
+		<entryvalue ident="unity.comment" value="1"></entryvalue>
+		<entryvalue ident="unity.animTable" value="0"></entryvalue>
+		<entryvalue ident="unity.ETSManagementMode" value="1"></entryvalue>
+		<entryvalue ident="unity.OptimizeOnlineChange" value="0"></entryvalue>
+		<!--group unity.PLCdiagnostics-->
+		<entryvalue ident="unity.application" value="0"></entryvalue>
+		<entryvalue ident="unity.applevel" value="0"></entryvalue>
+		<entryvalue ident="unity.system" value="1"></entryvalue>
+		<entryvalue ident="unity.language" value="2"></entryvalue>
+		<!--group unity.Variables-->
+		<entryvalue ident="unity.leadingDigit" value="0"></entryvalue>
+		<entryvalue ident="unity.CharSet" value="0"></entryvalue>
+		<entryvalue ident="unity.EBoolEdge" value="1"></entryvalue>
+		<entryvalue ident="unity.intDIntAsWordDWord" value="1"></entryvalue>
+		<entryvalue ident="unity.extractAnyBit" value="1"></entryvalue>
+		<entryvalue ident="unity.directRepArray" value="0"></entryvalue>
+		<entryvalue ident="unity.dynamicArray" value="0"></entryvalue>
+		<entryvalue ident="unity.arraySizeCompCheck" value="0"></entryvalue>
+		<!--group unity.Program-->
+		<!--group unity.Languages-->
+		<entryvalue ident="unity.withFBD" value="1"></entryvalue>
+		<entryvalue ident="unity.withLD" value="1"></entryvalue>
+		<entryvalue ident="unity.withSFC" value="1"></entryvalue>
+		<entryvalue ident="unity.withIL" value="1"></entryvalue>
+		<entryvalue ident="unity.withST" value="1"></entryvalue>
+		<!--group unity.languagecommon-->
+		<entryvalue ident="unity.generalProc" value="1"></entryvalue>
+		<entryvalue ident="unity.generalSub" value="1"></entryvalue>
+		<entryvalue ident="unity.nestedComment" value="0"></entryvalue>
+		<entryvalue ident="unity.multiAssign" value="0"></entryvalue>
+		<entryvalue ident="unity.emptyParam" value="1"></entryvalue>
+		<entryvalue ident="unity.STExpressions" value="1"></entryvalue>
+		<entryvalue ident="unity.RemanentLink" value="0"></entryvalue>
+		<entryvalue ident="unity.LDStructComment" value="0"></entryvalue>
+		<!--group unity.FBD-->
+		<entryvalue ident="unity.FBDNbRow" value="240"></entryvalue>
+		<entryvalue ident="unity.FBDNbColumn" value="360"></entryvalue>
+		<!--group unity.LD-->
+		<entryvalue ident="unity.LDRightJustify" value="0"></entryvalue>
+		<entryvalue ident="unity.LDNbColumn" value="11"></entryvalue>
+		<entryvalue ident="unity.LDCellWidth" value="0"></entryvalue>
+		<entryvalue ident="unity.SingleScanEdgeDetectionEBool" value="0"></entryvalue>
+		<!--group unity.MixedDisplay-->
+		<entryvalue ident="unity.LDNbLinesCmt" value="1"></entryvalue>
+		<entryvalue ident="unity.LDNbLinesSym" value="1"></entryvalue>
+		<entryvalue ident="unity.LDNbLinesAdr" value="1"></entryvalue>
+		<!--group unity.SFC-->
+		<entryvalue ident="unity.macroSections" value="1"></entryvalue>
+		<entryvalue ident="unity.multiToken" value="1"></entryvalue>
+		<!--group unity.SFCmultiToken-->
+		<entryvalue ident="unity.nbActiveStep" value="32"></entryvalue>
+		<entryvalue ident="unity.nbActiveActions" value="96"></entryvalue>
+		<entryvalue ident="unity.setStep" value="1"></entryvalue>
+		<entryvalue ident="unity.parallelBranches" value="1"></entryvalue>
+		<entryvalue ident="unity.multiEvolution" value="1"></entryvalue>
+		<!--group unity.ST-->
+		<entryvalue ident="unity.jumpAndLabel" value="0"></entryvalue>
+		<!--group unity.OperatorScreens-->
+		<entryvalue ident="unity.fullScreen" value="0"></entryvalue>
+		<!--group unity.ControlledScreen-->
+		<entryvalue ident="unity.varCtrlScreen" value=""></entryvalue>
+		<entryvalue ident="unity.displayScreenControl" value="0"></entryvalue>
+		<entryvalue ident="unity.displayScreenNumber" value="0"></entryvalue>
+		<!--group unity.LastOpenedScreen-->
+		<entryvalue ident="unity.varDispScreen" value=""></entryvalue>
+	</settings>
+</FEFExchangeFile>
