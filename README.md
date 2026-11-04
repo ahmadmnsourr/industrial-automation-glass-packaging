@@ -6,11 +6,15 @@ Developed by **Ahmad Mansour** and **Lawrence Abou Karroum** at the **University
 
 ## Process demonstration
 
-[![Glass packaging automation — watch the process demonstration](screenshots/packaging-station.png)](media/glass-packaging-demo.mp4)
+**Animated process preview (plays automatically):**
 
-**[Watch the 41-second packaging-process animation (MP4)](media/glass-packaging-demo.mp4)**
+[![Animated preview of the glass-packaging conveyor and manipulator](media/glass-packaging-preview.gif)](media/glass-packaging-demo.mp4)
 
-The recording illustrates the glass-handling and conveyor process. It is a visual process demonstration; it should not be interpreted as proof that the PLC program was independently executed against the animation.
+**[▶ Watch the full glass-packaging demonstration (MP4, ~32 seconds)](media/glass-packaging-demo.mp4)**
+
+*The demonstration is approximately 1.3× faster than the original recording. The GIF plays directly on GitHub; clicking it opens the full video.*
+
+The edited recording illustrates the glass-handling and conveyor process, with the black bottom border removed and playback accelerated by 30%. It is a visual process demonstration; it should not be interpreted as proof that the PLC program was independently executed against the animation.
 
 ## System overview
 
@@ -47,8 +51,8 @@ industrial-automation-glass-packaging/
 ├── media/
 │   └── glass-packaging-demo.mp4      # Original process animation (renamed only)
 ├── screenshots/
-│   ├── packaging-station.png         # Still frame from the original video
-│   └── conveyor-transfer.png         # Still frame from the original video
+│   ├── packaging-station-clean.png   # Border-free still frame from demo
+│   └── conveyor-transfer-clean.png   # Border-free still frame from demo
 ├── CONTRIBUTORS.md
 ├── .gitignore
 └── README.md
@@ -68,7 +72,7 @@ industrial-automation-glass-packaging/
 
 | Packaging station | Conveyor transfer |
 |---|---|
-| ![Glass packaging workstation](screenshots/packaging-station.png) | ![Conveyor assembly transfer](screenshots/conveyor-transfer.png) |
+| ![Glass packaging workstation](screenshots/packaging-station-clean.png) | ![Conveyor assembly transfer](screenshots/conveyor-transfer-clean.png) |
 
 ## Contributors
 
