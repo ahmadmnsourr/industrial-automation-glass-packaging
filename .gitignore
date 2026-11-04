@@ -1,0 +1,38 @@
+
+# Industrial Glass Packaging — PLC Automation
+
+# Schneider Electric Unity Pro / Control Expert temporary files
+*.bak
+*.backup
+*.tmp
+*.temp
+*.log
+*.lock
+*.lck
+*.autosave
+
+# Temporary and cache folders
+temp/
+tmp/
+cache/
+.cache/
+
+# Editor and IDE settings
+.vscode/
+.idea/
+
+# Windows system files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary editor files
+*~
+*.swp
+*.swo
+
+# Keep original PLC project files
+# *.stu and *.xef are intentionally NOT ignored
+
+# Keep demonstration media and screenshots
+# media/ and screenshots/ are intentionally NOT ignored
